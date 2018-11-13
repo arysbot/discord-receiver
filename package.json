@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/arysbot/shard#readme",
   "dependencies": {
+    "@grpc/proto-loader": "^0.3.0",
+    "discord.js": "^11.4.2",
     "grpc": "^1.16.0",
     "protofiles": "git+https://github.com/arysbot/protofiles.git"
   }
