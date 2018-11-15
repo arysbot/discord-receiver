@@ -1,0 +1,21 @@
+{
+  "mhardOrchestrator": {
+    "name": "ShardOrchestrator",
+    "serviceName": "shard-orchestrator",
+    "config": {}
+  },
+  "mommands": {
+    "name": "Commands",
+    "serviceName": "commands",
+    "config": {
+      "grpc.lb_policy_name": "round_robin"
+    }
+  },
+  "messageHandler": {
+    "name": "MessageHandler",
+    "serviceName": "message-handler",
+    "config": {
+      "grpc.lb_policy_name": "round_robin"
+    }
+  }
+}
