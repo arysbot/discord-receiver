@@ -17,5 +17,12 @@
     "config": {
       "grpc.lb_policy_name": "round_robin"
     }
+  },
+  "database": {
+    "name": "Database",
+    "serviceName": "database",
+    "config": {
+      "grpc.lb_policy_name": "round_robin"
+    }
   }
 }
