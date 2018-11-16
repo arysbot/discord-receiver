@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const grpc = require("grpc");
-const protoLoader = require('@grpc/proto-loader');
+const protoLoader = require("@grpc/proto-loader");
 const uuid = require("uuid/v1");
 const promClient = require("prom-client");
 // consts
@@ -21,17 +21,18 @@ class Sharder {
         this._grpcProto = {};
         Object.keys(grpcServers).forEach((server) => {
             // load protofile
-            this._grpcProto[server].path = path.join(__dirname, `../node_modules/protofiles/src/${grpcServers[server].name}.proto`);
+            this._grpcProto[server].path = path.join(__dirname,
+                `../node_modules/protofiles/src/${grpcServers[server].name}.proto`);
             this._grpcProto[server].definition = protoLoader.loadSync(this._grpcProto[server].path);
             this._grpcProto[server].object = grpc.loadPackageDefinition(this._grpcProto[server].definition);
             this.grpcProto[grpcServers[server].name] = this._grpcProto[server].object[server];
             // start grpc client
-            this.grpcClients[server] = new this.grpcProto[grpcServers[server].name](`dns:///${grpcServers[server].serviceName}.arys-${NODE_ENV}.svc.cluster.local`,
+            this.grpcClients[server] = new this.grpcProto[grpcServers[server].name](`dns:///${grpcServers[server].serviceName}.arys-${NODE_ENV}.svc.cluster.local`, // eslint-disable-line
                 grpc.credentials.createInsecure(), grpcServers[server].config);
         });
         const { shardOrchestrator, commands, messageHandler } = this.grpcClients;
-        shardOrchestrator.Identify({ uuid: uuid()}, (err, resp) => {
-            if (err) {
+        shardOrchestrator.Identify({ uuid: uuid() }, (err, resp) => {
+            if(err) {
 
             }
         });
