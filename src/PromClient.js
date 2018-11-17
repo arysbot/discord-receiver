@@ -1,19 +1,15 @@
 // Libraries
-const path = require("path");
-const fs = require("fs");
 const os = require("os");
-const uuid = require("uuid/v1");
-const promClient = require("prom-client");
+const PromClient = require("prom-client");
 // consts
-const { NODE_ENV } = process.env;
-const grpcServers = fs.readFileSync("../config.json");
 
 
-const { register, Histogram } = promClient;
+const { register, Histogram } = PromClient;
 
 class promClient {
     constructor() {
-        this._client = promClient;
+        this._client = PromClient;
+        this.register = promClient.register;
         this.metrics = {};
         this.metrics.grpcRequests = new Histogram({
             name: "grpc requests",
@@ -34,7 +30,15 @@ class promClient {
         this.grpcLatency = this.metrics.grpcLatency;
         this.messageRate = this.metrics.messageRate;
     }
-    addGrpcLatency() {
-        this
+    addGrpcRequest(service, request, code) {
+        this.grpcRequests.labels(service, os.hostname(), request, code).observe(1);
+    }
+    addGrpcLatency(service, request, code, latency) {
+        this.grpcLatency.labels(service, os.hostname(), request, code).observe(latency);
+    }
+    addMessage(shard, guild) {
+        this.messageRate.labels(shard, guild).observe(1);
     }
 }
+
+module.exports = promClient;
