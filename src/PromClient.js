@@ -12,17 +12,17 @@ class promClient {
         this.register = promClient.register;
         this.metrics = {};
         this.metrics.grpcRequests = new Histogram({
-            name: "grpc requests",
+            name: "grpc_requests",
             help: "amount of requests sent over grpc",
             label: ["service", "instance", "request", "code"]
         });
         this.metrics.grpcLatency = new Histogram({
-            name: "grpc latency",
+            name: "grpc_latency",
             help: "history of the grpc request-response time",
             labelNames: ["service", "instance", "request", "code"]
         });
         this.metrics.messageRate = new Histogram({
-            name: "discord message rate",
+            name: "discord_message_rate",
             help: "amount of messages tthe bot receives from all guilds at a given time",
             label: ["shard", "guild"]
         });

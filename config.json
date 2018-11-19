@@ -1,26 +1,26 @@
 {
   "grpc": {
-    "mhardOrchestrator": {
-      "name": "ShardOrchestrator",
+    "ShardOrchestrator": {
+      "name": "shardOrchestrator",
       "serviceName": "shard-orchestrator",
       "config": {}
     },
-    "mommands": {
-      "name": "Commands",
+    "Commands": {
+      "name": "commands",
       "serviceName": "commands",
       "config": {
         "grpc.lb_policy_name": "round_robin"
       }
     },
-    "messageHandler": {
-      "name": "MessageHandler",
+    "MessageHandler": {
+      "name": "messageHandler",
       "serviceName": "message-handler",
       "config": {
         "grpc.lb_policy_name": "round_robin"
       }
     },
-    "database": {
-      "name": "Database",
+    "Database": {
+      "name": "database",
       "serviceName": "database",
       "config": {
         "grpc.lb_policy_name": "round_robin"
