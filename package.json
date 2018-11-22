@@ -1,5 +1,5 @@
 {
-  "name": "arys-shard",
+  "name": "arys-sharder",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@discordjs/uws": "^11.149.1",
     "@grpc/proto-loader": "^0.3.0",
+    "arys-winston-transport-grpc": "github:arysbot/winston-transport-grpc",
     "discord.js": "^11.4.2",
     "erlpack": "github:discordapp/erlpack",
     "express": "^4.16.4",

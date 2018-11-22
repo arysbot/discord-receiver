@@ -20,6 +20,7 @@ class Sharder {
     identify() {
         const uuid = uuid();
         // send grpc request
+
         // send log to winston saying that the instanced identifies
         // send error to sentry if couldn't identify
     }
