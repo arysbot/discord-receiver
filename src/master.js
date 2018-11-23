@@ -9,5 +9,6 @@ if(false) {
         const sharder = new Sharder();
     });
 } else {
+    process.env.GRPC_URL = "127.0.0.1:8881";
     const sharder = new Sharder();
 }

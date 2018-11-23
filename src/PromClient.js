@@ -21,10 +21,10 @@ class promClient {
             help: "history of the grpc request-response time",
             labelNames: ["service", "instance", "request", "code"]
         });
-        this.metrics.messageRate = new Histogram({
-            name: "discord_message_rate",
-            help: "amount of messages tthe bot receives from all guilds at a given time",
-            label: ["shard", "guild"]
+        this.metrics.eventeRate = new Histogram({
+            name: "discord_event_rate",
+            help: "amount of events the bot receives from all guilds at a given time",
+            label: ["event", "shard", "guild"]
         });
         this.grpcRequests = this.metrics.grpcRequests;
         this.grpcLatency = this.metrics.grpcLatency;
@@ -40,8 +40,8 @@ class promClient {
         this._addGrpcRequest(service, request, code);
         this._addGrpcLatency(service, request, code, latency);
     }
-    addMessage(shard, guild) {
-        this.messageRate.labels(shard, guild).observe(1);
+    addEvent(event, shard, guild) {
+        this.messageRate.labels(event, shard, guild).observe(1);
     }
 }
 
