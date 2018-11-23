@@ -30,11 +30,15 @@ class promClient {
         this.grpcLatency = this.metrics.grpcLatency;
         this.messageRate = this.metrics.messageRate;
     }
-    addGrpcRequest(service, request, code) {
+    _addGrpcRequest(service, request, code) {
         this.grpcRequests.labels(service, os.hostname(), request, code).observe(1);
     }
-    addGrpcLatency(service, request, code, latency) {
+    _addGrpcLatency(service, request, code, latency) {
         this.grpcLatency.labels(service, os.hostname(), request, code).observe(latency);
+    }
+    addGrpcRequest(service, request, code, latency) {
+        this._addGrpcRequest(service, request, code);
+        this._addGrpcLatency(service, request, code, latency);
     }
     addMessage(shard, guild) {
         this.messageRate.labels(shard, guild).observe(1);
