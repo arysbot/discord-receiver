@@ -18,7 +18,7 @@ class grpcClient {
             // load protofile
             this._proto[server] = {};
             this._proto[server].path = path.join(__dirname,
-                `../node_modules/protofiles/src/${server}.proto`);
+                `../node_modules/@arys/protofiles/src/${server}.proto`);
             this._proto[server].definition = protoLoader.loadSync(this._proto[server].path);
             this._proto[server].object = grpc.loadPackageDefinition(this._proto[server].definition);
             this.proto[grpcServers[server].name] = this._proto[server].object[server];
