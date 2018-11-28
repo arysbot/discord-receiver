@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const GrpcClient = require("GrpcClient");
-const Loger = require("Loger");
+const GrpcClient = require("./utils/GrpcClient");
+const Loger = require("./utils/Loger");
 const fs = require("fs");
 
 class Shard {

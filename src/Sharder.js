@@ -1,7 +1,7 @@
-const GrpcClient = require("./GrpcClient");
+const GrpcClient = require("./utils/GrpcClient");
 const _uuid = require("uuid/v1");
 const cluster = require("cluster");
-const Loger = require("Loger");
+const Loger = require("./utils/Loger");
 
 class Sharder {
     constructor() {

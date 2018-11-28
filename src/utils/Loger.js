@@ -1,4 +1,4 @@
-const PromClient = require("PromClient");
+const PromClient = require("src/utils/PromClient");
 const winston = require("winston");
 const GrpcTransport = require("@arys/winston-transport-grpc");
 
