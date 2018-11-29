@@ -1,0 +1,10 @@
+{
+  "ip": "127.0.0.1",
+  "ports": {
+    "SHARD_ORCHESTRATOR": 8881,
+    "COMMANDS": 8882,
+    "DATABASE": 8883,
+    "LOGGER": 8884,
+    "MESSAGE_HANDLER": 8885
+  }
+}
