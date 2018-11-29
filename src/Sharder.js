@@ -7,6 +7,7 @@ class Sharder {
     constructor() {
         this.grpcClient = new GrpcClient();
         this.loger = new Loger({ service: "sharder" });
+        this.identify();
     }
     identify() {
         const uuid = _uuid();
@@ -27,8 +28,7 @@ class Sharder {
                     shardCount: response.totalShard,
                     shardId: response.startShard + i,
                     DISCORD_TOKEN: process.env.DISCORD_TOKEN,
-                    NODE_ENV: process.env.NODE_ENV,
-                    GRPC_URL: process.env.GRPC_URL
+                    NODE_ENV: process.env.NODE_ENV
                 };
                 cluster.fork(env);
             }

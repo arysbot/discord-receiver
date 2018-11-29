@@ -1,4 +1,5 @@
-const PromClient = require("src/utils/PromClient");
+const PromClient = require("./PromClient");
+const grpcClient = require("./GrpcClient");
 const winston = require("winston");
 const GrpcTransport = require("@arys/winston-transport-grpc");
 
@@ -12,9 +13,9 @@ class Loger {
             transports: [
                 new GrpcTransport({
                     level: "info",
-                    serverURL: process.env.GRPC_URL,
+                    serverURL: grpcClient.setServerUrl("Logger"),
                     config: { "grpc.lb_policy_name": "round_robin" },
-                    path: "../node_modules/@arys/protofiles/src/Logger.proto"
+                    path: "./node_modules/@arys/protofiles/src/Logger.proto"
                 })
             ]
         });

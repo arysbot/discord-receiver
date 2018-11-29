@@ -25,6 +25,13 @@
       "config": {
         "grpc.lb_policy_name": "round_robin"
       }
+    },
+    "Logger": {
+      "name": "logger",
+      "serviceName": "logger",
+      "config": {
+        "grpc.lb_policy_name": "round_robin"
+      }
     }
   },
   "shardAmmount": 3
