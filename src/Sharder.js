@@ -1,12 +1,12 @@
 const GrpcClient = require("@arys/grpc-client");
 const _uuid = require("uuid/v1");
 const cluster = require("cluster");
-const Loger = require("./utils/Loger");
+const Logger = require("@arys/logger");
 
 class Sharder {
     constructor() {
         this.grpcClient = new GrpcClient();
-        this.loger = new Loger({ service: "sharder" });
+        this.loger = new Logger({ service: "sharder" });
     }
     identify() {
         const uuid = _uuid();

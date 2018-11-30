@@ -19,6 +19,7 @@
   "dependencies": {
     "@arys/grpc-client": "^1.0.2",
     "@arys/grpc-url": "^1.0.3",
+    "@arys/logger": "^1.0.0",
     "@arys/protofiles": "^1.0.0",
     "@arys/winston-transport-grpc": "^1.0.3",
     "@discordjs/uws": "^11.149.1",
