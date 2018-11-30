@@ -1,7 +1,7 @@
 {
   "name": "arys-sharder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Service responsible for loading the discord.js shards listening to the ws discord gateway",
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js"
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/arysbot/shard#readme",
   "dependencies": {
+    "@arys/grpc-client": "^1.0.2",
+    "@arys/grpc-url": "^1.0.3",
     "@arys/protofiles": "^1.0.0",
     "@arys/winston-transport-grpc": "^1.0.3",
     "@discordjs/uws": "^11.149.1",

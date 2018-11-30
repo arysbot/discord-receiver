@@ -1,0 +1,35 @@
+{
+  "ShardOrchestrator": {
+    "name": "shardOrchestrator",
+    "serviceName": "shard-orchestrator",
+    "config": {}
+  },
+  "Commands": {
+    "name": "commands",
+    "serviceName": "commands",
+    "config": {
+      "grpc.lb_policy_name": "round_robin"
+    }
+  },
+  "MessageHandler": {
+    "name": "messageHandler",
+    "serviceName": "message-handler",
+    "config": {
+      "grpc.lb_policy_name": "round_robin"
+    }
+  },
+  "Database": {
+    "name": "database",
+    "serviceName": "database",
+    "config": {
+      "grpc.lb_policy_name": "round_robin"
+    }
+  },
+  "Logger": {
+    "name": "logger",
+    "serviceName": "logger",
+    "config": {
+      "grpc.lb_policy_name": "round_robin"
+    }
+  }
+}

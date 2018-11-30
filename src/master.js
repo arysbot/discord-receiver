@@ -12,6 +12,7 @@ if(process.env.NODE_ENV !== "TEST") {
     process.env.GRPC_URL = "127.0.0.1:8881";
     try {
         const sharder = new Sharder();
+        console.log(sharder);
     } catch (e) {
         console.error(e);
     }
